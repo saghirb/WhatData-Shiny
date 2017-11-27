@@ -6,8 +6,9 @@ library(DT)
 library(tidyverse)
 library(tibble)
 library(stringr)
+library(forcats)
+
 library(MASS)
-library(DT)
 library(fivethirtyeight)
 library(gapminder)
 library(nycflights13)
@@ -47,14 +48,20 @@ all_ds <- all_ds_ls$results %>%
   tidyr::unite(Classes, c(-Package, -Data_Orig, -Title), sep= " ") 
 
 # Define unique packages and classes to be used for the UI
-uniqueClasses <- gsub("\\s+", " ", all_ds$Classes) %>% 
-  str_split("\\s+") %>% 
-  unlist() %>% 
-  unique() %>% 
-  .[nzchar(.)] %>% 
-  sort()
+# uniqueClasses <- gsub("\\s+", " ", all_ds$Classes) %>% 
+#   str_split("\\s+") %>% 
+#   unlist() %>% 
+#   unique() %>% 
+#   .[nzchar(.)] %>% 
+#   sort()
 
-uniqueClasses
+all_long <- all_ds %>% 
+  mutate(class = strsplit(Classes, "\\s+")) %>%
+  unnest(class) %>%
+  filter(class != "") %>% 
+  mutate(class = as.factor(class)) 
+
+uniqueClasses <- fct_unique(all_long$class)
 
 uniquePackages <- unique(all_ds$Package) %>% 
   sort()
