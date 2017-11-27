@@ -47,14 +47,7 @@ all_ds <- all_ds_ls$results %>%
   tidyr::spread(key = Class, value=Val, fill = "") %>%
   tidyr::unite(Classes, c(-Package, -Data_Orig, -Title), sep= " ") 
 
-# Define unique packages and classes to be used for the UI
-# uniqueClasses <- gsub("\\s+", " ", all_ds$Classes) %>% 
-#   str_split("\\s+") %>% 
-#   unlist() %>% 
-#   unique() %>% 
-#   .[nzchar(.)] %>% 
-#   sort()
-
+# Long version makes it easier to filter by class.
 all_long <- all_ds %>% 
   mutate(class = strsplit(Classes, "\\s+")) %>%
   unnest(class) %>%

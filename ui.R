@@ -6,12 +6,6 @@ header <- dashboardHeader(title = "WhatData - Shiny Version")
 # Dashboard Sidebar ---------------------------------------------------
 
 sidebar <- dashboardSidebar(
-  # checkboxGroupInput("selClasses", 
-  #                label = "Select Classes",
-  #                choices = uniqueClasses,
-  #                selected = uniqueClasses
-  #                ),
-
   selectizeInput("selClasses",
                  label = "Select Classes",
                  choices = uniqueClasses,
