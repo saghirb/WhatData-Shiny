@@ -46,5 +46,5 @@ all_long <- all_ds %>%
   filter(class != "") %>% 
   mutate(class = as.factor(class)) 
 
-readr::write_rds(all_ds, path = "data/all_ds")
-readr::write_rds(all_long, path = "data/all_long")
+save(all_ds, file = "data/all_ds.RData")
+save(all_long, file = "data/all_long.RData")
