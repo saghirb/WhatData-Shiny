@@ -1,7 +1,13 @@
 # WhatData-Shiny
+
 Shiny App to find datasets available in R
 
 This is the R Shiny version of [WhatData](https://github.com/saghirb/WhatData)
+
+### Run From Github in RStudio
+
+shiny::runGitHub("WhatData-Shiny", "saghirb")
+
 
 ### Motivation & Objective
 
