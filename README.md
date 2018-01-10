@@ -6,7 +6,7 @@ This is the R Shiny version of [WhatData](https://github.com/saghirb/WhatData)
 
 ### Run From Github in RStudio
 
-shiny::runGitHub("WhatData-Shiny", "saghirb")
+`shiny::runGitHub("WhatData-Shiny", "saghirb")`
 
 
 ### Motivation & Objective
